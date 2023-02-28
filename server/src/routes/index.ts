@@ -17,7 +17,7 @@ const isValidUrl = (urlString: string) => {
   return !!urlPattern.test(urlString)
 }
 
-appRouter.get('/', (_req, res) => res.send('API - Auth'))
+appRouter.get('/', (_req, res) => res.send('API - Auth v2'))
 
 appRouter.get('/web', async (req, res) => {
   const url = req.query.url as string
