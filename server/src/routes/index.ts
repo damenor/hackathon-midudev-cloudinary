@@ -33,7 +33,6 @@ appRouter.get('/web', async (req, res) => {
     executablePath: revisionInfo.executablePath,
     ignoreDefaultArgs: ['--disable-extensions'],
     headless: true,
-    args: ['--no-sandbox', '--disabled-setupid-sandbox'],
   })
   const page = await browser.newPage()
   await page.goto(url)
