@@ -24,13 +24,13 @@ appRouter.get('/web', async (req, res) => {
 
   if (!url) return res.status(500).json({ error: true, message: 'La url es requerida' })
 
-  const browserFetcher = puppeteer.createBrowserFetcher()
-  const revisionInfo = await browserFetcher.download('1095492')
+  // const browserFetcher = puppeteer.createBrowserFetcher()
+  // const revisionInfo = await browserFetcher.download('1095492')
 
-  if(!revisionInfo) return res.status(500).json({ error: true, message: 'ups! hubo algun error' })
+  // if(!revisionInfo) return res.status(500).json({ error: true, message: 'ups! hubo algun error' })
 
   const browser = await puppeteer.launch({
-    executablePath: revisionInfo.executablePath,
+    // executablePath: revisionInfo.executablePath,
     ignoreDefaultArgs: ['--disable-extensions'],
     headless: true,
   })
