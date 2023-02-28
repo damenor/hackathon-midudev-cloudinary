@@ -1,0 +1,22 @@
+@mixin containerWavy($bg: $linear-gradient-default) {
+  background: #{$bg};
+  --mask: radial-gradient(50.39px at 50% 68.75px, #000 99%, #0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
+    radial-gradient(50.39px at 50% -43.75px, #0000 99%, #000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
+    radial-gradient(50.39px at 50% calc(100% - 68.75px), #000 99%, #0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
+    radial-gradient(50.39px at 50% calc(100% + 43.75px), #0000 99%, #000 101%) 50% calc(100% - 25px) / 100px calc(51% - 25px) repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+
+@mixin containerDiagonal($bg: $linear-gradient-default, $skewAngle: -5deg) {
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: '';
+    background: #{$bg};
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    transform: skewY(#{$skewAngle});
+  }
+}

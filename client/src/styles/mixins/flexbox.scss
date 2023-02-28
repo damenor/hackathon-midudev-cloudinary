@@ -1,0 +1,26 @@
+@mixin flex($direction: row, $x: null, $y: null, $isWrap: false, $gap: null){
+  display: flex;
+  @if($direction == row){
+    @if($x) { @include flexJustifyContent($x); }
+    @if($y) { @include flexAlignItems($y); }
+  } @else {
+    flex-direction: $direction;
+    @if($x) { @include flexAlignItems($x); }
+    @if($y) { @include flexJustifyContent($y); }
+  }
+  @include flexWrap($isWrap);
+  @if $gap { gap: $gap; }
+}
+
+@mixin flexAlignItems($position){
+  align-items: $position
+}
+
+@mixin flexJustifyContent($position){
+  justify-content: $position;
+}
+
+@mixin flexWrap($isWrap){
+  @if($isWrap) { flex-wrap: wrap }
+  @if($isWrap == false) { flex-wrap: nowrap }
+}

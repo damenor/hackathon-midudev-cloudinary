@@ -1,0 +1,11 @@
+@mixin grid($columns, $columnWidth: 1fr, $gap: 0em, $defineMediaQuery: true, $mediaQuerySmall: 480px, $columnsQuerySmall: 2) {
+  display: grid;
+  grid-template-columns: repeat($columns, $columnWidth);
+  gap: $gap;
+  @if($defineMediaQuery) {
+    @media screen and (max-width: $mediaQuerySmall) {
+      grid-template-columns: repeat($columnsQuerySmall, 1fr);
+      gap: $gap;
+    }
+  }
+}

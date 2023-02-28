@@ -1,0 +1,31 @@
+$colors-theme: (
+  primary: #55efc4,
+  primary-contrast: #222,
+  secondary: hsl(246, 69%, 50%),
+  secondary-contrast: #222,
+  tertiary: hsl(280, 78%, 69%),
+  tertiary-contrast: #222,
+
+  dark: #111,
+  light: #fff,
+
+  danger: #ee5253,
+  danger-contrast: #fff,
+  info: #54a0ff,
+  info-contrast: #111,
+  success: #08AB9F,
+  success-contrast: #fff,
+  warning: #ff9f43,
+  warning-contrast: #222,
+
+  bg: #111,
+  bg-contrast: #f9f9f9,
+  bg-secondary: #171717,
+  bg-secondary-contrast: #f9f9f9,
+
+  // bg: #fefefe,
+  // bg-contrast: #171717,
+  // bg-secondary: #f0f0f0,
+  // bg-secondary-contrast: #171717,
+
+);

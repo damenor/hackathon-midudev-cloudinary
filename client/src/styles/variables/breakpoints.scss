@@ -1,0 +1,12 @@
+$breakpoint-xxs: 320px;
+$breakpoint-xs: 544px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$media-query-breakpoints: (
+  xxs: $breakpoint-xxs,
+  xs: $breakpoint-xs,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg
+);

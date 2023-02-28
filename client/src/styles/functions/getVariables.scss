@@ -1,0 +1,20 @@
+@function getMediaQueryBreakpoint($key) {
+  @return map-get($media-query-breakpoints, $key);
+}
+
+@function colorTheme($key){
+  @return map-get($colors-theme, $key);
+}
+
+@function colorBasics($key){
+  @return map-get($colors-basics, $key);
+}
+
+@function colorFlat($key){
+  @return map-get($colors-flat, $key);
+}
+
+@function colorMaterial($key, $key2) {
+  $mat: map-get($colors-material, $key);
+  @return map-get($mat, $key2);
+}

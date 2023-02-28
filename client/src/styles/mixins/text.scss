@@ -1,0 +1,12 @@
+@mixin textGradient($bg: $linear-gradient-default) {
+  background: #{$bg};
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin textTruncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

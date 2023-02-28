@@ -1,0 +1,4 @@
+@import './colors';
+@import './breakpoints';
+
+$linear-gradient-default: linear-gradient(45deg, var(--color-primary) 20%, var(--color-secondary) 80%);

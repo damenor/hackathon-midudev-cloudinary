@@ -1,0 +1,11 @@
+@mixin transition($property: all, $time: 0.2s, $mode: ease-in-out, $delay: null){
+  transition: $property $time $mode $delay;
+}
+
+@mixin animationButton ($scale: 0.9){
+  @include transition;
+  cursor: pointer;
+  &:active {
+    transform: scale($scale);
+  }
+}
