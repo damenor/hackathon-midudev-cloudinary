@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./build",
+    "build": "tsc",
     "dev": "nodemon",
-    "start": "node build/index.js"
+    "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register build/index.js"
   },
   "keywords": [],
   "author": "damenor <damenor.develop@gmail.com>",

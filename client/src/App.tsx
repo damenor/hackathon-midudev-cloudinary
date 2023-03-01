@@ -1,11 +1,13 @@
 // https://commons.wikimedia.org/wiki/File:VWO-Logo.svg
+// https://github.com/junkboy0315/react-compare-image
 
 import { FormEvent, useState } from 'react'
 
-import { Logo } from '@/components'
+import { Header, Logo } from '@/components'
 
 const getImagesFromWeb = async (webUrl: string) => {
   const response = await fetch(`http://localhost:5000/web?url=${webUrl}`)
+  // const response = await fetch(`https://visual-web-optimizer.onrender.com/web?url=${webUrl}`)
   return await response.json()
 }
 
@@ -25,47 +27,60 @@ export const App = () => {
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     setImages([])
     event.preventDefault()
+    console.log({ webUrl })
     if (!webUrl) return
     const response = await getImagesFromWeb(webUrl)
+    console.log({ response })
 
     const images = await response.images.map(async (url: string) => {
-      // const { size, type, text, slice } = await fetch(url).then(async r => await r.blob())
       const response = await fetch(url)
-      // const buffer = await response.arrayBuffer()
-      // console.log({ buffer })
-      const { size, type } = await response.blob()
+      const blob = await response.blob()
+      const { size, type } = blob
+      console.log({ size, type })
+      // if(i === 1) {
+      //   const imageUrl = URL.createObjectURL(blob)
+      //   window.open(imageUrl)
+      // }
       return { size, sizeFormatted: formatBytes(size), type, url }
     })
     const img = await Promise.all(images)
-    console.log({ img })
     setImages(img)
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '24px' }}>
-      <div style={{ maxWidth: '650px', width: '100%' }}>
-        <img src="/logo.svg" alt="logo" style={{ width: '100%' }} />
-        {/* <Logo /> */}
-        <h1 style={{ fontSize: '1.5rem', paddingTop: '8px', textAlign: 'center' }}>Visual Web Optimizer</h1>
-      </div>
+    <>
+      <Header />
+      <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 24px' }}>
+        
+        {/* <div style={{ maxWidth: '650px', width: '100%' }}>
+          <h1 style={{ fontSize: '1.5rem', paddingBottom: '8px', textAlign: 'center', fontWeight: 'bold' }}>Visual Web Optimizer</h1>
+          <img src="/logo.svg" alt="logo" style={{ width: '100%' }} />
+        </div> */}
 
-      {/* {  webUrl && <iframe src={webUrl} /> } */}
-      <form
-        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '32px auto', width: '100%', maxWidth: '960px' }}
-        onSubmit={onSubmit}
-      >
-        <input placeholder="Inserta la dirección de tu web" type="url" onChange={e => setWebUrl(e.target.value)} />
-        <button type="submit">Submit</button>
-      </form>
-      {images
-        .filter((img: any) => img.type.includes('image/'))
-        .map((image: any) => (
-          <div>
-            <span>{image.sizeFormatted}</span>
-            <span>{image.type.replace('image/', '')}</span>
-            <img width="80px" src={image.url} />
-          </div>
-        ))}
-    </div>
+        {/* {  webUrl && <iframe src={webUrl} /> } */}
+
+        <img width="260px" style={{ backgroundColor: 'var(--color-bg-secondary)', borderRadius: '16px' }} src="https://o.remove.bg/downloads/8efceee2-5a85-45ac-b444-a4fe5170574d/8-removebg-preview.png" alt="" />
+
+        <p style={{ paddingTop: '64px', maxWidth: '450px' }}>Nuestra plataforma de búsqueda de imágenes te permite encontrar y mejorar rápidamente las imágenes de tu sitio web para mejorar la velocidad de carga y la experiencia del usuario. Acelera tu sitio web y aumenta tu visibilidad en los motores de búsqueda con nuestra solución de optimización de imágenes.</p>
+
+        {/* <p style={{ fontSize: '1.5rem', fontWeight: 'bold', paddingTop: '32px' }}>¡Comienza a mejorar tu sitio web hoy mismo!</p> */}
+        <form
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '16px auto', width: '100%', maxWidth: '960px' }}
+          onSubmit={onSubmit}
+        >
+          <input placeholder="Inserta la dirección de tu web" type="url" onChange={e => setWebUrl(e.target.value)} />
+          <button type="submit">¡Comienza a mejorar tu sitio web hoy mismo!</button>
+        </form>
+        {images
+          .filter((img: any) => img.type.includes('image/'))
+          .map((image: any) => (
+            <div>
+              <span>{image.sizeFormatted}</span>
+              <span>{image.type.replace('image/', '')}</span>
+              <img width="80px" src={image.url} />
+            </div>
+          ))}
+      </main>
+    </>
   )
 }

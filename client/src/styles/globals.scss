@@ -38,5 +38,5 @@ input {
   color: var(--color-bg-secondary-contrast);
   padding: 16px 24px;
   border-radius: 32px;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
 }
