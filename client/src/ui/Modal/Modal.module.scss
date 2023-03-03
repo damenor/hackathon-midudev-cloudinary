@@ -4,6 +4,7 @@
   &_backdrop {
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     background-color: rgba(0, 0, 0, 0.75);
     @include positionFixed($left: 0, $top: 0, $zIndex: 99);
     backdrop-filter: blur(8px);
