@@ -1,0 +1,30 @@
+.buttonScrollDown {
+  @include positionAbsolute($bottom: 36px, $left: 50%);
+  width: 24px;
+  height: 32px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  outline: 2px solid var(--color-tertiary);
+  box-shadow: 0px 0px 10px var(--color-tertiary);
+  transform: translateX(-50%);
+  &:after {
+    content: 'scroll';
+    position: absolute;
+    top: 125%;
+    color: var(--color-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+  }
+  &_scroll {
+    width: 8px;
+    height: 12px;
+    border-radius: 8px;
+    background-color: var(--color-tertiary);
+    box-shadow: 0px 0px 10px var(--color-tertiary);
+  }
+}

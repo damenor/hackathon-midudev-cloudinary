@@ -2,7 +2,7 @@
   transition: $property $time $mode $delay;
 }
 
-@mixin animationButton ($scale: 0.9){
+@mixin animationButton ($scale: 0.98){
   @include transition;
   cursor: pointer;
   &:active {

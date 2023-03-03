@@ -1,9 +1,17 @@
 .header {
-  @include flex($x: space-between, $y: center);
+  @include positionFixed($top: 0, $left: 0, $zIndex: 99);
+  @include flex($x: center, $y: center);
 
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 16px 8px;
+  width: 100%;
+  backdrop-filter: blur(8px);
+  height: var(--app-header-height);
+  
+  &_content {
+    width: 100%;
+    @include flex($x: space-between, $y: center);
+    max-width: 1400px;
+    padding: 16px 8px;
+  }
 
   ul {
     @include flex($y: center, $gap: 16px);
@@ -20,6 +28,13 @@
     &:hover {
       background-color: var(--color-bg-secondary);
     }
+  }
+
+  &_menu {
+    width: 300px;
+    height: 100vh;
+    background-color: var(--color-bg-secondary);
+    box-shadow: 8px 0 20px rgba(0, 0, 0, 0.12);
   }
 
 }

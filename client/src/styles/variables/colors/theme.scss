@@ -1,9 +1,9 @@
 $colors-theme: (
-  primary: #55efc4,
+  primary: #a29bfe,
   primary-contrast: #222,
-  secondary: hsl(246, 69%, 50%),
+  secondary: #e96479,
   secondary-contrast: #222,
-  tertiary: hsl(280, 78%, 69%),
+  tertiary: #55efc4,
   tertiary-contrast: #222,
 
   dark: #111,
@@ -13,8 +13,8 @@ $colors-theme: (
   danger-contrast: #fff,
   info: #54a0ff,
   info-contrast: #111,
-  success: #08AB9F,
-  success-contrast: #fff,
+  success: #08ab9f,
+  success-contrast: #111,
   warning: #ff9f43,
   warning-contrast: #222,
 
@@ -22,10 +22,13 @@ $colors-theme: (
   bg-contrast: #f9f9f9,
   bg-secondary: #171717,
   bg-secondary-contrast: #f9f9f9,
-
+  bg-tertiary: #333,
+  bg-tertiary-contrast: #f9f9f9,
+  
   // bg: #fefefe,
   // bg-contrast: #171717,
   // bg-secondary: #f6f6f6,
   // bg-secondary-contrast: #171717,
-
+  // bg-tertiary: #333,
+  // bg-tertiary-contrast: #f9f9f9,
 );

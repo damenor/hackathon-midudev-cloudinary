@@ -1,0 +1,17 @@
+.modal {
+  @include positionFixed($zIndex: 100);
+  overflow-x: hidden;
+  &_backdrop {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    @include positionFixed($left: 0, $top: 0, $zIndex: 99);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+  }
+  &_header {
+    @include flex($x: space-between, $y: center);
+    padding: 8px;
+    padding-bottom: 0;
+  }
+}

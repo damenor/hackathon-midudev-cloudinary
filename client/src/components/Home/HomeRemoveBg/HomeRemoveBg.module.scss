@@ -1,0 +1,14 @@
+.homeRemoveBg {
+  @include flex($direction: column, $x: center, $y: center, $gap: 16px);
+  padding: 32px;
+  min-height: calc(100vh - var(--app-header-height));
+  @include containerWavy(var(--color-secondary));
+  h2 {
+    max-width: 450px;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    text-align: center;
+    font-weight: bold;  
+    color: var(--color-secondary-contrast);
+    opacity: 0;
+  }
+}
