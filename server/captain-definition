@@ -4,6 +4,7 @@
     "FROM node:16.13.0-alpine",
     "RUN mkdir -p /usr/src/app",
     "WORKDIR /usr/src/app",
+    "COPY ./usr/bin/chromium-browser /usr/bin/chromium-browser",
     "COPY ./package.json /usr/src/app/",
     "RUN npm install && npm cache clean --force",
     "COPY ./ /usr/src/app",
