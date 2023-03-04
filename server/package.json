@@ -2,11 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "build": "tsc",
     "dev": "nodemon",
-    "start": "npm build && node build/index.js",
+    "start": "node build/index.js",
     "build:install": "npm install --no-frozen-lockfile && npm build"
   },
   "keywords": [],
