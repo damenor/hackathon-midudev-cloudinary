@@ -6,8 +6,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon",
-    "start": "pnpm build && node build/index.js",
-    "build:install": "pnpm install --no-frozen-lockfile && pnpm build"
+    "start": "npm build && node build/index.js",
+    "build:install": "npm install --no-frozen-lockfile && npm build"
   },
   "keywords": [],
   "author": "damenor <damenor.develop@gmail.com>",
