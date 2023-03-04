@@ -5,6 +5,7 @@
     "RUN mkdir -p /usr/src/app",
     "WORKDIR /usr/src/app",
     "COPY ./package.json /usr/src/app/",
+    "sudo apt-get install chromium-browser",
     "RUN npm install && npm cache clean --force",
     "COPY ./ /usr/src/app",
     "ENV NODE_ENV production",

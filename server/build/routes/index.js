@@ -34,6 +34,7 @@ exports.appRouter.get('/web', (req, res) => __awaiter(void 0, void 0, void 0, fu
     // try {
     const browser = yield puppeteer_1.default.launch({
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        executablePath: '/usr/bin/chromium-browser',
         headless: true,
     });
     const page = yield browser.newPage();

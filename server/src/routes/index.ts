@@ -28,6 +28,7 @@ appRouter.get('/web', async (req, res) => {
   // try {
     const browser = await puppeteer.launch({
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      executablePath: '/usr/bin/chromium-browser',
       headless: true,
     })
     const page = await browser.newPage()
