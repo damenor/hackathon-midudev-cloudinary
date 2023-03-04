@@ -9,7 +9,6 @@ lerna-debug.log*
 pnpm-lock*
 
 node_modules
-build
 dist
 dist-ssr
 .env
