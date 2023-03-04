@@ -27,7 +27,7 @@ appRouter.get('/web', async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      ignoreDefaultArgs: ['--disable-extensions'],
+      ignoreDefaultArgs: ['--no-sandbox', '--disable-extensions'],
       headless: true,
     })
     const page = await browser.newPage()
