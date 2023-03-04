@@ -31,19 +31,18 @@ exports.appRouter.get('/web', (req, res) => __awaiter(void 0, void 0, void 0, fu
     const url = req.query.url;
     if (!url)
         return res.status(500).json({ error: true, message: 'La url es requerida' });
-    try {
-        const browser = yield puppeteer_1.default.launch({
-            ignoreDefaultArgs: ['--disable-extensions'],
-            headless: true,
-        });
-        const page = yield browser.newPage();
-        yield page.goto(url);
-        const imagesWeb = yield page.$$eval('img', images => images.map(image => image.src));
-        yield browser.close();
-        const imagesNotDuplicates = [...new Set(imagesWeb)].filter(img => img !== '' && isValidUrl(img));
-        return res.status(200).json({ images: imagesNotDuplicates });
-    }
-    catch (error) {
-        return res.status(500).json({ error: true, message: 'ups' });
-    }
+    // try {
+    const browser = yield puppeteer_1.default.launch({
+        args: ['--no-sandbox'],
+        headless: true,
+    });
+    const page = yield browser.newPage();
+    yield page.goto(url);
+    const imagesWeb = yield page.$$eval('img', images => images.map(image => image.src));
+    yield browser.close();
+    const imagesNotDuplicates = [...new Set(imagesWeb)].filter(img => img !== '' && isValidUrl(img));
+    return res.status(200).json({ images: imagesNotDuplicates });
+    // } catch (error) {
+    //   return res.status(500).json({ error: true, message: 'ups', errorMsg: JSON.stringify(error) }) 
+    // }
 }));
