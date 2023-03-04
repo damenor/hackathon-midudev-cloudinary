@@ -13,21 +13,18 @@
     padding: 16px 8px;
   }
 
-  ul {
-    @include flex($y: center, $gap: 16px);
+  &_left,
+  &_right {
+    @include flex($y: center);
+    flex: 1;
   }
 
-  &_link {
-    display: grid;
-    place-items: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    @include transition;
-    @include animationButton;
-    &:hover {
-      background-color: var(--color-bg-secondary);
-    }
+  &_right {
+    justify-content: flex-end;
+  }
+
+  &_logo {
+    width: 100px;
   }
 
   &_menu {

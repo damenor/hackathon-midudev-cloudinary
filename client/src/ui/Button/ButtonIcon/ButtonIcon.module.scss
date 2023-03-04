@@ -1,0 +1,12 @@
+.buttonIcon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  @include transition;
+  @include animationButton;
+  &:hover {
+    background-color: var(--color-bg-secondary);
+  }
+}
