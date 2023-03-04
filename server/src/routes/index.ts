@@ -27,7 +27,7 @@ appRouter.get('/web', async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      ignoreDefaultArgs: ['--no-sandbox', '--disable-extensions'],
+      args: ['--no-sandbox'],
       headless: true,
     })
     const page = await browser.newPage()
@@ -37,6 +37,6 @@ appRouter.get('/web', async (req, res) => {
     const imagesNotDuplicates = [...new Set(imagesWeb)].filter(img => img !== '' && isValidUrl(img))
     return res.status(200).json({ images: imagesNotDuplicates })
   } catch (error) {
-    return res.status(500).json({ error: true, message: 'ups' }) 
+    return res.status(500).json({ error: true, message: 'ups', errorMsg: JSON.stringify(error) }) 
   }
 })
