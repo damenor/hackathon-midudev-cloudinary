@@ -33,7 +33,7 @@ exports.appRouter.get('/web', (req, res) => __awaiter(void 0, void 0, void 0, fu
         return res.status(500).json({ error: true, message: 'La url es requerida' });
     // try {
     const browser = yield puppeteer_1.default.launch({
-        args: ['--no-sandbox'],
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
         headless: true,
     });
     const page = yield browser.newPage();
