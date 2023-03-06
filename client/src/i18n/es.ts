@@ -14,7 +14,18 @@ export default {
       title: 'Elimina el fondo de las imágenes'
     },
     webAnalyze: {
-      menuTitle: 'Analizar web'
+      menuTitle: 'Analizar web',
+      title: 'Estas son las imagenes que encontramos',
+      modal: 'Enviámos a nuestros mejores expertos analizar la web, espere unos segundos',
+      improve: 'Mejorar',
+      imageOriginal: 'Originales',
+      imageImprove: 'Mejoradas',
+      item: {
+        button: 'Seleccionar',
+        buttonSelected: 'Seleccionado',
+        numberSelected: 'seleccionadas',
+        download: 'Descargar'
+      }
     },
     shared: {
       dragZoneButton: 'Cargar imagen'

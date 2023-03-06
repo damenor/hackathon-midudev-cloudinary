@@ -7,6 +7,7 @@ import { WebAnalyzeImageType } from '@/types'
 import { copyToClipboard, toLinkExternal } from '@/tools'
 
 import styles from './WebAnalyzeImagesItem.module.scss'
+import { useLabelsContext } from '@/contexts'
 
 export type WebAnalyzeImagesItemProps = WebAnalyzeImageType & {
   isSelected: boolean
@@ -15,6 +16,7 @@ export type WebAnalyzeImagesItemProps = WebAnalyzeImageType & {
 }
 
 export const WebAnalyzeImagesItem: FC<WebAnalyzeImagesItemProps> = ({ size, sizeFormatted, type, url, isSelected, isImprove, onClick }) => {
+  const { labels } = useLabelsContext('webAnalyze.item')
   return (
     <div className={styles.webAnalyzeImagesItem}>
       <div className={styles.webAnalyzeImagesItem_header}>
@@ -29,12 +31,12 @@ export const WebAnalyzeImagesItem: FC<WebAnalyzeImagesItemProps> = ({ size, size
       {!isImprove ? (
         <div>
           <Button className={styles.webAnalyzeImagesItem_button} backgroundColor={isSelected ? 'success' : 'primary'} onClick={onClick}>
-            {isSelected ? 'Seleccionada' : 'Seleccionar'}
+            {isSelected ? labels.buttonSelected : labels.button}
           </Button>
         </div>
       ) : (
         <a className={styles.webAnalyzeImagesItem_button} download href={url} target="_blank">
-          Descargar
+          { labels.download }
         </a>
       )}
     </div>

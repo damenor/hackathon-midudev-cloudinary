@@ -4,7 +4,7 @@ import { improve } from '@cloudinary/url-gen/actions/adjust'
 
 import { Button, ButtonIcon, MasonryResponsive } from '@/ui'
 import { WebAnalyzeImageType } from '@/types'
-import { useLoadingContext } from '@/contexts'
+import { useLabelsContext, useLoadingContext } from '@/contexts'
 import { cloudinary } from '@/tools'
 import { cloudinaryUploadImage, getImageData } from '@/services'
 
@@ -26,6 +26,7 @@ export const WebAnalyzeImages: FC<WebAnalyzeImagesProps> = ({ images }) => {
   const [imagesImprove, setImagesImprove] = useState<WebAnalyzeImageType[]>([])
   const [tabSelected, setTabSelected] = useState(0)
   const { showLoading, hideLoading } = useLoadingContext()
+  const { labels } = useLabelsContext('webAnalyze')
 
   if (images.length === 0) return <></>
 
@@ -50,23 +51,23 @@ export const WebAnalyzeImages: FC<WebAnalyzeImagesProps> = ({ images }) => {
   return (
     <>
       <div className={styles.webAnalyzeImages}>
-        <h2 className={styles.webAnalyzeImages_title}>Estas son las imagenes que encontramos</h2>
+        <h2 className={styles.webAnalyzeImages_title}>{labels.title}</h2>
 
         {imagesImprove.length > 0 && (
           <div className={styles.webAnalyzeImages_tabs}>
             <Button backgroundColor={tabSelected === 0 ? 'primary' : 'bg'} onClick={() => setTabSelected(0)}>
-              Originales
+              { labels.imageOriginal }
             </Button>
             <Button backgroundColor={tabSelected === 1 ? 'primary' : 'bg'} onClick={() => setTabSelected(1)}>
-              Mejoradas
+            { labels.imageImprove }
             </Button>
           </div>
         )}
 
         <div className={styles.webAnalyzeImages_filter}>
-          <p>{selected.length} seleccionadas</p>
+          <p>{selected.length} {labels.item.numberSelected}</p>
           <div className={styles.webAnalyzeImages_filterButtons}>
-            {selected.length > 0 && <Button onClick={onImproveImages}>Mejorar</Button>}
+            {selected.length > 0 && <Button onClick={onImproveImages}>{labels.improve}</Button>}
             {/* <ButtonIcon Icon={MdFilterList} /> */}
           </div>
         </div>
@@ -83,15 +84,6 @@ export const WebAnalyzeImages: FC<WebAnalyzeImagesProps> = ({ images }) => {
           ))}
         </MasonryResponsive>
       </div>
-      {/* <Modal ref={modalRef as any}>
-        {imagesImprove.length > 0 && (
-          <div style={{ maxWidth: '90%', maxHeight: '90%', backgroundColor: 'var(--color-bg)' }}>
-            <img style={{ width: '100%' }} src={imagesImprove[modalImageSelected].url} alt="" />
-            <Button onClick={() => setModalImageSelected(prevState => prevState - 1)}>Anterior</Button>
-            <Button onClick={() => setModalImageSelected(prevState => prevState + 1)}>Siguiente</Button>
-          </div>
-        )}
-      </Modal> */}
     </>
   )
 }
