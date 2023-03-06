@@ -7,13 +7,11 @@ specifiers:
   '@vitejs/plugin-react-swc': ^3.0.0
   framer-motion: ^10.0.0
   react: ^18.2.0
-  react-compare-image: ^3.3.0
   react-dom: ^18.2.0
   react-icons: ^4.7.1
   react-query: ^3.39.3
   react-router-dom: ^6.8.1
   sass: ^1.58.3
-  two-up-element: ^1.0.1
   typescript: ^4.9.3
   vite: ^4.1.0
   vite-tsconfig-paths: ^4.0.5
@@ -22,12 +20,10 @@ dependencies:
   '@cloudinary/url-gen': 1.9.1
   framer-motion: 10.0.0_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
-  react-compare-image: 3.3.0_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
   react-query: 3.39.3_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.8.1_biqbaboplfbrettd7655fr4n2y
-  two-up-element: 1.0.1
 
 devDependencies:
   '@types/react': 18.0.28
@@ -722,10 +718,6 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
-  /pointer-tracker/2.5.3:
-    resolution: {integrity: sha512-LiJUeIbzk4dXq678YeyrZ++mdY17q4n/2sBHfU9wIuvmSzdiPgMvmvWN2g8mY4J7YwYOIrqrZUWP/MfFHVwYtg==}
-    dev: false
-
   /postcss/8.4.21:
     resolution: {integrity: sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==}
     engines: {node: ^10 || ^12 || >=14}
@@ -734,16 +726,6 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: true
-
-  /react-compare-image/3.3.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-RNua/cBqosKFvMfI+GLdraUaTunhstsQoPi3DWvrAmCBoJRDVoLskxFsLDV4JNfFJMiRlcLyAAPKZoAA4f8Upw==}
-    peerDependencies:
-      react: ^16.8 || ^17 || ^18
-      react-dom: ^16.8 || ^17 || ^18
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
 
   /react-dom/18.2.0_react@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
@@ -899,12 +881,6 @@ packages:
 
   /tslib/2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
-    dev: false
-
-  /two-up-element/1.0.1:
-    resolution: {integrity: sha512-KjN4SBkOKeQ6LgZDOaxgnHyXV/VkmCXELeQSPs8GJUP8yFSqrH5pw9KxI/dny3pJdywe+ae+YiM4I/s91EGhOA==}
-    dependencies:
-      pointer-tracker: 2.5.3
     dev: false
 
   /typescript/4.9.5:

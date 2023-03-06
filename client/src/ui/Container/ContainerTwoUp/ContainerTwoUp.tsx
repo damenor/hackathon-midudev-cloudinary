@@ -1,7 +1,8 @@
 import { FC } from 'react'
-import ReactCompareImage from 'react-compare-image'
+// import ReactCompareImage from 'react-compare-image'
 
 import styles from './ContainerTwoUp.module.scss'
+import { ReactCompareImage } from './ReactCompareImage'
 
 export type ContainerTwoUpProps = {
   leftImage: string

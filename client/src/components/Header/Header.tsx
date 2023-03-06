@@ -6,7 +6,7 @@ import { i18nOptions } from '@/i18n'
 import { DropDownMenu } from '@/ui'
 
 import styles from './Header.module.scss'
-import { HeaderMenu } from './HeaderMenu'
+// import { HeaderMenu } from './HeaderMenu'
 
 export const Header: FC = () => {
   

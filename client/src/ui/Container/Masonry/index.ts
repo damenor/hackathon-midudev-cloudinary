@@ -1,2 +1,2 @@
-export { default as Masonry } from './Masonry'
-export { default as MasonryResponsive } from './MasonryResponsive'
+export { Masonry } from './Masonry'
+export { MasonryResponsive } from './MasonryResponsive'

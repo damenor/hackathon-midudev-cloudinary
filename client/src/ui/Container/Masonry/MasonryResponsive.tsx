@@ -1,9 +1,7 @@
-'use client'
-
 import { useMemo, CSSProperties, FC, ReactNode } from 'react'
 
 import { useWindowWidth } from './hooks'
-import Masonry, { MasonryProps } from './Masonry'
+import { Masonry, MasonryProps } from './Masonry'
 
 export type MasonryResponsiveProps = MasonryProps & {
   children: ReactNode
@@ -14,7 +12,7 @@ export type MasonryResponsiveProps = MasonryProps & {
 
 const DEFAULT_COLUMNS_COUNT = 1
 
-const MasonryResponsive: FC<MasonryResponsiveProps> = ({
+export const MasonryResponsive: FC<MasonryResponsiveProps> = ({
   columnsCountBreakPoints = {
     350: 1,
     750: 2,
@@ -54,5 +52,3 @@ const MasonryResponsive: FC<MasonryResponsiveProps> = ({
     </div>
   )
 }
-
-export default MasonryResponsive

@@ -7,7 +7,7 @@ import { homePageRoute } from './HomePage'
 import { cloudinaryUploadImage } from '@/services'
 import { useLoadingContext } from '@/contexts'
 
-const RemoveBgPage: FC = () => {
+export const RemoveBgPage: FC = () => {
 
   const { state } = useLocation()
   const navigate = useNavigate()

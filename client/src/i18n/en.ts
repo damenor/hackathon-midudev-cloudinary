@@ -1,4 +1,4 @@
-export default {
+export const en = {
   language: 'English',
   labels: {
     home: {

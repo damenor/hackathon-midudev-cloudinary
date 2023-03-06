@@ -18,7 +18,7 @@ export const HeaderMenu: FC = () => {
   return (
     <>
       <ButtonIcon Icon={CgMenuLeft} onClick={handleOpenMenu} />
-      <Modal classNameParent={styles.headerMenu_modalParent} className={styles.headerMenu_modal} ref={modalRef as any} type="left">
+      {/* <Modal classNameParent={styles.headerMenu_modalParent} className={styles.headerMenu_modal} ref={modalRef as any} type="left">
         <h1>Visual Web Optimizer</h1>
         <Logo />
         <div className={styles.headerMenu_content}>
@@ -28,7 +28,7 @@ export const HeaderMenu: FC = () => {
               <HeaderMenuLink key={page.path} onClick={onCloseMenu} {...page} />
             ))}
         </div>
-      </Modal>
+      </Modal> */}
     </>
   )
 }

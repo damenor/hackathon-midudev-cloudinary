@@ -1,5 +1,3 @@
-'use client'
-
 import { Children, CSSProperties, FC, isValidElement, ReactNode } from 'react'
 
 export type MasonryProps = {
@@ -10,7 +8,7 @@ export type MasonryProps = {
   className?: string
 }
 
-const Masonry: FC<MasonryProps> = ({ children, columnsCount = 3, style, gutter, className }) => {
+export const Masonry: FC<MasonryProps> = ({ children, columnsCount = 3, style, gutter, className }) => {
   const getColumns = () => {
     const columns: any[][] = Array.from({ length: columnsCount }, () => [])
     Children.forEach(children, (child, index) => {
@@ -65,4 +63,3 @@ Masonry.defaultProps = {
   style: {},
 }
 
-export default Masonry

@@ -3,7 +3,7 @@ import { FC } from 'react'
 import { HomeHero, HomeRemoveBg, RoutePage } from '@/components'
 import { ContainerSnap } from '@/ui'
 
-const HomePage: FC = () => {
+export const HomePage: FC = () => {
   return (
     <ContainerSnap>
       <HomeHero />
