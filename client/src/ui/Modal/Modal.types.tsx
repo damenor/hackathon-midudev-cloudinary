@@ -7,6 +7,7 @@ export type ModalPosition = keyof typeof modalVariants
 export type ModalProps = {
   children: ReactNode
   className?: string
+  classNameParent?: string
   notCloseBackdrop?: boolean
   type?: ModalPosition
   onClose?: () => void

@@ -1,4 +1,7 @@
 export * from './Button'
 export * from './Container'
+export * from './DragFileZone'
+export * from './DropDownMenu'
 export * from './IntersectionObserver'
 export * from './Modal'
+export * from './Spinner'

@@ -4,12 +4,16 @@
   min-height: calc(100vh - var(--app-header-height));
   min-height: calc(100dvh - var(--app-header-height));
   @include containerWavy(var(--color-secondary));
-  h2 {
+  &_title {
     max-width: 450px;
     font-size: clamp(1.5rem, 5vw, 2.5rem);
     text-align: center;
     font-weight: bold;  
     color: var(--color-secondary-contrast);
     opacity: 0;
+  }
+  &_content {
+    @include flex($direction: column, $gap: 16px, $x: center);
+    width: 100%;
   }
 }

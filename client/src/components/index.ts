@@ -1,3 +1,6 @@
 export * from './Header'
 export * from './Home'
 export * from './Logo'
+export * from './Modal'
+export * from './WebAnalyze'
+export * from './Router'

@@ -1,39 +1,45 @@
 import { FC } from 'react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
-import { Button, ContainerSnapItem, ContainerTwoUp } from '@/ui'
+import { ContainerSnapItem, ContainerTwoUp, DragFileZone } from '@/ui'
+import { removeBgPageRoute } from '@/pages'
 
 import styles from './HomeRemoveBg.module.scss'
+import { useLabelsContext } from '@/contexts'
 
 export type HomeRemoveBgProps = {}
 
+export const DragZone = () => {}
+
 export const HomeRemoveBg: FC<HomeRemoveBgProps> = props => {
+  const navigate = useNavigate()
+  const { labels } = useLabelsContext('removeBg.title')
+
+  const onChangeImage = (file: File) => {
+    navigate(removeBgPageRoute.path, { state: { file } })
+  }
+
   return (
     <ContainerSnapItem>
-      <motion.div
-        className={styles.homeRemoveBg}
-        // initial={{ scaleY: 0, opacity: 0 }}
-        // whileInView={{ scaleY: 1, opacity: 1 }}
-        // transition={{ duration: 0.4 }}
-      >
+      <div className={styles.homeRemoveBg}>
         <motion.h2
+          className={styles.homeRemoveBg_title}
           initial={{ opacity: 0, translateY: -100 }}
           whileInView={{ opacity: 1, translateY: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
         >
-          Elimina el fondo de las imágenes
+          {labels}
         </motion.h2>
-        <motion.div
-          // initial={{ opacity: 0 }}
-          // whileInView={{ opacity: 1 }}
-          // transition={{ duration: 0.3, delay: 0.6 }}
-        >
-          <ContainerTwoUp />
-        </motion.div>
-        <motion.form initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.4 }}>
-          <Button backgroundColor="tertiary">Subir imagen</Button>
-        </motion.form>
-      </motion.div>
+
+        <div className={styles.homeRemoveBg_content}>
+          <ContainerTwoUp
+            leftImage="https://sb.kaleidousercontent.com/67418/992x558/38748c9193/products-stunning-quality-v2.jpg"
+            rightImage="https://sb.kaleidousercontent.com/67418/992x558/a45eaf1df9/products-stunning-quality-transp.png"
+          />
+          <DragFileZone onChange={onChangeImage} />
+        </div>
+      </div>
     </ContainerSnapItem>
   )
 }

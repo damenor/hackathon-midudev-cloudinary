@@ -1,21 +1,29 @@
-import { FC, FormEvent, useRef } from 'react'
+import { FC, FormEvent, useState } from 'react'
 import { motion } from 'framer-motion'
+import { createSearchParams, useNavigate } from 'react-router-dom'
 
-import { Button, Modal, ModalHandle } from '@/ui'
+import { Button } from '@/ui'
+import { webAnalyzePageRoute } from '@/pages'
+import { isValidUrl } from '@/tools'
+import { useLabelsContext } from '@/contexts'
 
 import styles from './HomeHero.module.scss'
 
 export type HomeHeroFormProps = {}
 
 export const HomeHeroForm: FC<HomeHeroFormProps> = props => {
+  const [webUrl, setWebUrl] = useState('')
+  const { labels } = useLabelsContext('home.homeHero')
+  
+  const navigate = useNavigate()
 
-  const modalRef = useRef<ModalHandle>()
-
-  const onSubmit = (event: FormEvent) => {
+  const handleOnSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    modalRef.current?.open()
-
-    setTimeout(() => modalRef.current?.close(), 3000)
+    if(!webUrl || !isValidUrl(webUrl)) return
+    navigate({
+      pathname: webAnalyzePageRoute.path,
+      search: createSearchParams({ webUrl }).toString()
+    })
   }
 
   return (
@@ -26,33 +34,14 @@ export const HomeHeroForm: FC<HomeHeroFormProps> = props => {
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <motion.h2>Mejora las imágenes de tu web para optimizar el rendimiento</motion.h2>
-        <form onSubmit={onSubmit}>
-          <input type="url" placeholder="Indica tu dirección web" />
+        <motion.h2>{labels.title}</motion.h2>
+        <form onSubmit={handleOnSubmit}>
+          <input type="url" placeholder={labels.inputPlaceholder} onChange={e => setWebUrl(e.target.value)} />
           <Button backgroundColor="primary" type="submit">
-            Analizar
+          {labels.button}
           </Button>
         </form>
       </motion.div>
-      <Modal ref={modalRef as any} notCloseBackdrop>
-        <div
-          style={{
-            minWidth: '280px',
-            maxWidth: '450px',
-            display: 'grid',
-            placeItems: 'center',
-            gap: '16px',
-            backgroundColor: 'var(--color-bg)',
-            padding: '32px',
-            borderRadius: '32px',
-          }}
-        >
-          <div className="loader"></div>
-          {/* <h2 style={{ fontSize: 'clamp(1.25rem, 5vw, 2rem)', textAlign: 'center' }}>
-            Enviámos a nuestros mejores expertos analizar la web, espere unos segundos
-          </h2> */}
-        </div>
-      </Modal>
     </>
   )
 }

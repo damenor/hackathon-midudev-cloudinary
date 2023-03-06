@@ -1,0 +1,15 @@
+.modalLoading {
+  min-width: 280px;
+  max-width: 450px;
+  display: grid;
+  place-items: center;
+  gap: 16px;
+  background-color: var(--color-bg);
+  padding: 32px;
+  border-radius: 32px;
+  overflow: hidden;
+  &_text {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+    text-align: center;
+  }
+}

@@ -1,43 +1,38 @@
-import { FC, useRef, useState } from 'react'
-import { CgMenuLeft, CgSun, CgMoon } from 'react-icons/cg'
-import { TbLanguage } from 'react-icons/tb'
-import { motion } from 'framer-motion'
+import { FC } from 'react'
+import { Link } from 'react-router-dom'
 
-import { ButtonIcon, Modal, ModalHandle } from '@/ui'
+import { useLabelsContext } from '@/contexts'
+import { i18nOptions } from '@/i18n'
+import { DropDownMenu } from '@/ui'
 
 import styles from './Header.module.scss'
+import { HeaderMenu } from './HeaderMenu'
 
-export type HeaderProps = {}
-
-export const Header: FC<HeaderProps> = props => {
-  const [isDarkMode, setIsDarkMode] = useState(true)
-  const modalRef = useRef<ModalHandle>()
-
-  const toggleTheme = () => setIsDarkMode(prevState => !prevState)
-
-  const handleOnClick = () => modalRef.current?.open()
+export const Header: FC = () => {
+  
+  const { changeLanguage, languageSelected } = useLabelsContext()
 
   return (
-    <>
-      <header className={styles.header}>
-        <div className={styles.header_content}>
+    <header className={styles.header}>
+      <div className={styles.header_content}>
 
-          <div className={styles.header_left}>
-            <ButtonIcon Icon={CgMenuLeft} onClick={handleOnClick} />
-          </div>
-
-          <img src="/logo.svg" alt="logo" className={styles.header_logo} />
-
-          <div className={styles.header_right}>
-            {/* <div>EN</div> */}
-            <ButtonIcon Icon={TbLanguage} onClick={toggleTheme} />
-          </div>
-
+        <div className={styles.header_left}>
+          {/* <HeaderMenu /> */}
         </div>
-      </header>
-      <Modal className={styles.header_menu} ref={modalRef as any} type="left">
-        
-      </Modal>
-    </>
+
+        <Link to="/">
+          <img src="/logo.svg" alt="logo" className={styles.header_logo} />
+        </Link>
+
+        <div className={styles.header_right}>
+          <DropDownMenu 
+            items={i18nOptions()} 
+            initialSelected={i18nOptions().find(lang => lang.value === languageSelected)}
+            onChange={(item) => changeLanguage(item.value as any)} 
+          />
+        </div>
+
+      </div>
+    </header>
   )
 }

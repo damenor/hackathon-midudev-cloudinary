@@ -11,7 +11,8 @@ export const ModalComponent: ForwardRefRenderFunction<ModalHandle, ModalProps> =
   onClose, 
   onOpen, 
   className = '',
-  notCloseBackdrop,
+  classNameParent = '',
+  notCloseBackdrop = false,
   type = 'center' 
 }, ref) => {
   const [visible, setVisible] = useState(false)
@@ -32,7 +33,7 @@ export const ModalComponent: ForwardRefRenderFunction<ModalHandle, ModalProps> =
       {visible && (
         <>
           <ModalBackdrop notCloseBackdrop={notCloseBackdrop} onClose={close} />
-          <motion.div className={styles.modal} variants={modalVariants[type]} initial="hidden" animate="visible" exit="exit">
+          <motion.div className={`${styles.modal} ${classNameParent}`} variants={modalVariants[type]} initial="hidden" animate="visible" exit="exit">
             <motion.div
               className={className}
               drag="x"

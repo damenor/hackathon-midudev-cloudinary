@@ -1,49 +1,48 @@
 // https://commons.wikimedia.org/wiki/File:VWO-Logo.svg
 // https://github.com/junkboy0315/react-compare-image
-import { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { Cloudinary } from '@cloudinary/url-gen'
+import { backgroundRemoval } from '@cloudinary/url-gen/actions/effect'
 
-import { Header, HomeHero, HomeRemoveBg } from '@/components'
-import { ContainerFadeInUp, ContainerSnap, ContainerSnapItem, IntersectionObserver, ContainerScale, ContainerTwoUp, Button } from './ui'
+import { Header, Router } from '@/components'
+import { appPages } from '@/pages'
+import { LabelsProvider, LoadingProvider } from './contexts'
+
+// const cloudinary = new Cloudinary({
+//   cloud: {
+//     // cloudName: 'drd6zj0ws'
+//     cloudName: 'dgg07ocbn',
+//   },
+//   url: { secure: true }
+// })
 
 export const App = () => {
-  // const containerRef = useRef<any>()
 
   // useEffect(() => {
-  //   const onScroll = (e: any) => {
-  //     if (e.deltaY > 0) {
-  //       containerRef.current.scrollLeft += window.innerWidth
-  //     } else {
-  //       containerRef.current.scrollLeft -= window.innerWidth
-  //     }
-  //   }
-  //   containerRef.current?.addEventListener('wheel', onScroll)
+  //   const getClipboardData = async (event: KeyboardEvent) => {
+  //     console.log('HELLO', { event }, event.code !== 'KeyV' || !event.ctrlKey)
+  //     if(event.code !== 'KeyV' || !event.ctrlKey) return 
 
+  //     const data = await navigator.clipboard.readText()
+  //     console.log('HELLO', { data })
+  //   }
+  //   document.addEventListener('keydown', getClipboardData)
   //   return () => {
-  //     containerRef.current.removeEventListener('wheel', onScroll)
+  //     document.removeEventListener('keydown', getClipboardData)
   //   }
   // }, [])
 
+    // const imageWithoutBackground = cloudinary.image('landing/me_mjun2q').effect(backgroundRemoval())
+  // const myImage = imageWithoutBackground.toURL()
+  // const image = cloudinary.image('cld-sample')
+
   return (
-    <>
-      <Header />
-      {/* <main ref={containerRef}></main> */}
-      <ContainerSnap>
-        <HomeHero />
-
-        <HomeRemoveBg />
-
-        <ContainerSnapItem>
-          Helo World
-        </ContainerSnapItem>
-      </ContainerSnap>
-
-      <div className="dots">
-        <div className="dots_item"></div>
-        <div className="dots_item active"></div>
-        <div className="dots_item"></div>
-      </div>
-
-    </>
+    <LabelsProvider>
+      <LoadingProvider>
+        <Router 
+          childrenHeader={<Header />}
+          pages={appPages} 
+        />
+      </LoadingProvider>
+    </LabelsProvider>
   )
 }

@@ -1,36 +1,25 @@
 import { FC } from 'react'
-import 'two-up-element'
+import ReactCompareImage from 'react-compare-image'
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'two-up': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
-    }
-  }
+import styles from './ContainerTwoUp.module.scss'
+
+export type ContainerTwoUpProps = {
+  leftImage: string
+  rightImage: string
 }
 
-export type ContainerTwoUpProps = {}
-
-export const ContainerTwoUp: FC<ContainerTwoUpProps> = props => {
+export const ContainerTwoUp: FC<ContainerTwoUpProps> = ({ leftImage, rightImage }) => {
   return (
 
     <>
-      <two-up  style={{ borderRadius: '8px', overflow: 'hidden' }}>
-        <img
-          style={{ width: '100%', maxWidth: '450px' }}
-          src="/images/kyra.jpg"
-          alt="Imagen original subida por el usuario"
+      <div className={styles.containerTwoUp_image}>
+        <ReactCompareImage 
+          leftImage={leftImage}
+          rightImage={rightImage}
+          // leftImage="https://sb.kaleidousercontent.com/67418/992x558/38748c9193/products-stunning-quality-v2.jpg" 
+          // rightImage="https://sb.kaleidousercontent.com/67418/992x558/a45eaf1df9/products-stunning-quality-transp.png" 
         />
-        <img
-          style={{ 
-            width: '100%',
-            maxWidth: '450px',
-            background: 'rgba(0,0,0, 0.2)',
-          }}
-          src="/images/kyra.png"
-          alt="Imagen sin fondo subida por el usuario"
-        />
-      </two-up>
+      </div>
     </>
   )
 }

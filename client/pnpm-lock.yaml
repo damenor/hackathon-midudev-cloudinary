@@ -7,6 +7,7 @@ specifiers:
   '@vitejs/plugin-react-swc': ^3.0.0
   framer-motion: ^10.0.0
   react: ^18.2.0
+  react-compare-image: ^3.3.0
   react-dom: ^18.2.0
   react-icons: ^4.7.1
   react-query: ^3.39.3
@@ -21,6 +22,7 @@ dependencies:
   '@cloudinary/url-gen': 1.9.1
   framer-motion: 10.0.0_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
+  react-compare-image: 3.3.0_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
   react-query: 3.39.3_biqbaboplfbrettd7655fr4n2y
@@ -732,6 +734,16 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: true
+
+  /react-compare-image/3.3.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-RNua/cBqosKFvMfI+GLdraUaTunhstsQoPi3DWvrAmCBoJRDVoLskxFsLDV4JNfFJMiRlcLyAAPKZoAA4f8Upw==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18
+      react-dom: ^16.8 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-dom/18.2.0_react@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}

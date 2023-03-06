@@ -1,0 +1,35 @@
+.headerMenu {
+  &_content {
+    @include flex($direction: column, $gap: 16px);
+    padding: 32px 0;
+
+  }
+  &_modal {
+    width: 300px;
+    height: 100vh;
+    background-color: var(--color-bg-secondary);
+    box-shadow: 8px 0 20px rgba(0, 0, 0, 0.12);
+    padding: 16px;
+    h1 {
+      font-size: 1.5rem;
+      text-align: center;
+      font-weight: bold;
+    }
+    &Parent {
+      top: 0;
+      left: 0;    
+    }
+  }
+  &_link {
+    display: block;
+    text-align: center;
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    padding: 8px;
+    &__active {
+      background-color: var(--color-primary);
+      color: var(--color-primary-contrast);
+      font-weight: bold;
+    }
+  }
+}
