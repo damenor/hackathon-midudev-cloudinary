@@ -1,7 +1,7 @@
 import { fetcher } from '@/tools'
 
 export const cloudinaryUploadImage = async (fileUrl: string) => {
-  const body = new URLSearchParams()
+  const body = new FormData()
   body.append('upload_preset', 'x78tdh6o')
   body.append('timestamp', `${Date.now() / 1000}`)
   body.append('api_key', '593878146939498')

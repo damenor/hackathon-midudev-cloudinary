@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-interface IProps {
+export interface ReactCompareImageProps {
   aspectRatio?: 'taller' | 'wider'
   handle?: React.ReactNode
   handleSize?: number
@@ -19,6 +19,8 @@ interface IProps {
   sliderLineWidth?: number
   sliderPositionPercentage?: number
   vertical?: boolean
+  onImageLeftLoad?: () => void
+  onImageRightLoad?: () => void
 }
 
 const defaultProps = {
@@ -40,7 +42,7 @@ const defaultProps = {
   vertical: false,
 }
 
-export const ReactCompareImage: React.FC<IProps> = props => {
+export const ReactCompareImage: React.FC<ReactCompareImageProps> = props => {
   const {
     aspectRatio,
     handle,
@@ -60,6 +62,8 @@ export const ReactCompareImage: React.FC<IProps> = props => {
     sliderLineWidth,
     sliderPositionPercentage,
     vertical,
+    onImageLeftLoad,
+    onImageRightLoad
   } = props
 
   const horizontal = !vertical
@@ -360,7 +364,10 @@ export const ReactCompareImage: React.FC<IProps> = props => {
         data-testid="container"
       >
         <img
-          onLoad={() => setRightImgLoaded(true)}
+          onLoad={() => {
+            setRightImgLoaded(true)
+            if(onImageRightLoad) onImageRightLoad()
+          }}
           alt={rightImageAlt}
           data-testid="right-image"
           ref={rightImageRef}
@@ -368,7 +375,10 @@ export const ReactCompareImage: React.FC<IProps> = props => {
           style={styles.rightImage}
         />
         <img
-          onLoad={() => setLeftImgLoaded(true)}
+          onLoad={() => {
+            setLeftImgLoaded(true)
+            if(onImageRightLoad) onImageRightLoad()
+          }}
           alt={leftImageAlt}
           data-testid="left-image"
           ref={leftImageRef}

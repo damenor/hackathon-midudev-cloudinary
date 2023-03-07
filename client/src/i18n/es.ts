@@ -11,7 +11,9 @@ export const es = {
     },
     removeBg: {
       menuTitle: 'Eliminar fondo',
-      title: 'Elimina el fondo de las imágenes'
+      title: 'Elimina el fondo de las imágenes',
+      error: '¡Vaya!, parece que se nos desafilaron las tijeras, vuelve a principio de mes cuando haya pasado el afilador',
+      errorButton: 'Volver'
     },
     webAnalyze: {
       menuTitle: 'Analizar web',

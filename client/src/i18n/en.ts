@@ -11,7 +11,9 @@ export const en = {
     },
     removeBg: {
       menuTitle: 'Remove background',
-      title: 'Remove background from images'
+      title: 'Remove background from images',
+      error: 'WOW!, looks like our scissors are dull, come back at the beginning of the month when the sharpener is through',
+      errorButton: 'Back'
     },
     webAnalyze: {
       menuTitle: 'Analyze website',
